@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="jakub" id="1">
+        <createTable tableName="JOINED_VEHICLE">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="manufacturer" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="JOINED_BOAT">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="length" type="DOUBLE"/>
+        </createTable>
+
+        <createTable tableName="JOINED_CAR">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="seats" type="INT"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="JOINED_VEHICLE" baseColumnNames="id"
+                                 constraintName="fk_joined_vehicle_boat"
+                                 referencedTableName="JOINED_BOAT"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="JOINED_VEHICLE" baseColumnNames="id"
+                                 constraintName="fk_joined_vehicle_car"
+                                 referencedTableName="JOINED_CAR"
+                                 referencedColumnNames="id"/>
+
+        <createTable tableName="SINGLE_VEHICLE">
+            <column name="VEHICLE" type="varchar(255)"/>
+
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="manufacturer" type="varchar(255)"/>
+            <column name="length" type="DOUBLE"/>
+            <column name="seats" type="INT"/>
+        </createTable>
+
+        <createTable tableName="TABLE_PER_CLASS_BOAT">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="manufacturer" type="varchar(255)"/>
+            <column name="length" type="DOUBLE"/>
+        </createTable>
+
+        <createTable tableName="TABLE_PER_CLASS_CAR">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="manufacturer" type="varchar(255)"/>
+            <column name="seats" type="INT"/>
+        </createTable>
+        
+        <createTable tableName="HIBERNATE_SEQUENCES">
+            <column name="SEQUENCE_NAME" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="NEXT_VAL" type="BIGINT"/>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>
