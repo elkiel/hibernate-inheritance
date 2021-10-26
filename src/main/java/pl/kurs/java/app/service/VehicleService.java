@@ -14,6 +14,7 @@ public class VehicleService {
 
     private final List<InheritanceTypeRepository> repositories;
 
+
     public List<?> getAllVehiclesWhereStrategy(String strategy) {
         InheritanceType type = InheritanceType.valueOf(strategy);
 

@@ -1,9 +1,7 @@
 package pl.kurs.java.app.repository;
 
 import org.springframework.data.jpa.repository.Query;
-
 import org.springframework.stereotype.Repository;
-
 import pl.kurs.java.app.model.single.table.Boat;
 import pl.kurs.java.app.model.single.table.Car;
 import pl.kurs.java.app.model.single.table.Vehicle;

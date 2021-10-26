@@ -7,6 +7,7 @@ import javax.persistence.InheritanceType;
 
 @NoRepositoryBean
 public interface InheritanceTypeRepository<T> extends JpaRepository<T,Long> {
+
     InheritanceType getInheritanceType();
 
     Class<?> getClassOfCar();

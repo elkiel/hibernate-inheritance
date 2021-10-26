@@ -1,7 +1,7 @@
 package pl.kurs.java.app.repository;
 
-import org.hibernate.annotations.SQLInsert;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.hibernate.annotations.SQLInsert;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import pl.kurs.java.app.model.table.per.Boat;

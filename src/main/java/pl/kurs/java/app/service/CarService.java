@@ -52,45 +52,4 @@ public class CarService {
                 .filter(n -> n.getInheritanceType() == type)
                 .findFirst().orElseThrow(EntityNotFoundException::new);
     }
-
-//    private final List<InheritanceTypeRepository> repositories;
-//
-//    private final ModelMapper modelMapper;
-//
-//    private final TablePerClassRepository tablePerClassRepository;
-//
-//    private final SingleRepository singleRepository;
-//
-//    public Object addCarInStrategy(String strategy, CreateCarCommand car) {
-//        InheritanceType type = InheritanceType.valueOf(strategy);
-//
-//        if (singleRepository.getInheritanceType() == type) {
-//            return singleRepository.saveAndFlush(modelMapper.map(car, Car.class));
-//        } else if (tablePerClassRepository.getInheritanceType() == type) {
-//            return tablePerClassRepository.saveAndFlush(modelMapper.map(car, pl.kurs.java.app.model.table.per.Car.class));
-//        }
-//            return car;
-//
-//    }
-//
-//    public List<?> getAllCarsWhereStrategy(String strategy) {
-//        InheritanceType type = InheritanceType.valueOf(strategy);
-//
-//        if (singleRepository.getInheritanceType() == type) {
-//            return singleRepository.getAllCars();
-//        } else if (tablePerClassRepository.getInheritanceType() == type) {
-//            return tablePerClassRepository.getAllCars();
-//        }
-//        return new ArrayList<>();
-//
-//    }
-//
-//    public InheritanceTypeRepository findRepositoryWithStrategy(String strategy) {
-//        InheritanceType type = InheritanceType.valueOf(strategy);
-//
-//        return repositories.stream()
-//                .filter(n -> n.getInheritanceType() == type)
-//                .findFirst().orElseThrow(EntityNotFoundException::new);
-//    }
-
 }
